@@ -3,6 +3,8 @@ int numdrops;
 Ripple[] myRipples;
 int numripples;
 int bRed, bGreen, bBlue;
+Cloud[] myClouds;
+int numclouds;
 void setup() {
   size(1000, 1000, P2D);
   rectMode(CENTER);
@@ -27,6 +29,14 @@ void setup() {
   while (i2<numripples) {
     myRipples[i2] = new Ripple();
     i2++;
+  }
+  
+  numclouds = 100;
+  myClouds = new Cloud[numclouds];
+  int i3 = 0;
+  while (i3<numclouds) {
+    myClouds[i3] = new Cloud();
+    i3++;
   }
 }
 
@@ -65,5 +75,11 @@ void draw() {
     myRipples[i2].show();
     myRipples[i2].act();
     i2++;
+  }
+  int i3=0;
+  while (i3<numclouds) {
+    myClouds[i3].show();
+    myClouds[i3].act();
+    i3++;
   }
 }
