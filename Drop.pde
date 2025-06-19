@@ -13,7 +13,7 @@ class Drop {
     b=255;
   }
   void show() {
-    fill(h,s,b);
+    fill(h, s, b);
     square(x, y, size);
   }
   void act() {
@@ -23,4 +23,5 @@ class Drop {
       y=-size;
     }
   }
+
 }

@@ -2,7 +2,7 @@ Drop[] myDrops;
 int numdrops;
 Ripple[] myRipples;
 int numripples;
-int bRed, bGreen, bBlue;
+int bH, bS, bB;
 Cloud[] myClouds;
 int numclouds;
 void setup() {
@@ -11,9 +11,9 @@ void setup() {
   colorMode(HSB);
   noStroke();
   noFill();
-  bRed=0;
-  bGreen=0;
-  bBlue=0;
+  bH=0;
+  bS=255;
+  bB=255;
 
   numdrops = 175;
   myDrops = new Drop[numdrops];
@@ -30,7 +30,7 @@ void setup() {
     myRipples[i2] = new Ripple();
     i2++;
   }
-  
+
   numclouds = 100;
   myClouds = new Cloud[numclouds];
   int i3 = 0;
@@ -41,25 +41,14 @@ void setup() {
 }
 
 void draw() {
-  if (bRed<=255) {
-    bRed = bRed + int(random(2));
+  if (bH<=255) {
+    bH = bH + int(random(2));
   } else {
-    bRed = int(random(50,150));
+    bH = int(random(50, 150));
   }
 
-  if (bGreen<=255) {
-    bGreen = bGreen + int(random(2));
-  } else {
-    bGreen =int(random(50,150));
-  }
+  background(bH, bS, bB);
 
-  if (bBlue<=255) {
-    bBlue = bBlue + int(random(2));
-  } else {
-    bBlue =int(random(50,150));
-  }
-  background(bRed,bGreen,bBlue);
-  
   noStroke();
   fill(0, 120);
   rect(width/2, height/2, width, height);
@@ -82,4 +71,8 @@ void draw() {
     myClouds[i3].act();
     i3++;
   }
+}
+
+void mouseClicked() {
+  bH = bH + int(random(25, 150));
 }
